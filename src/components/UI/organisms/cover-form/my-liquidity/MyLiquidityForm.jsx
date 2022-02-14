@@ -12,6 +12,7 @@ import { useCalculatePods } from "@/src/hooks/provide-liquidity/useCalculatePods
 import dayjs from "dayjs";
 import { unixToDate } from "@/utils/date";
 import { useAppConstants } from "@/src/context/AppConstants";
+import { useTokenSymbol } from "@/src/hooks/useTokenSymbol";
 
 export const MyLiquidityForm = ({ coverKey, info }) => {
   const [lqValue, setLqValue] = useState();
