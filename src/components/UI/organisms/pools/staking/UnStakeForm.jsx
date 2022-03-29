@@ -17,6 +17,7 @@ export const UnStakeForm = ({
   stakedAmount,
   refetchInfo,
   poolKey,
+  setModalDisabled,
 }) => {
   const blockHeight = useBlockHeight();
 
@@ -35,6 +36,10 @@ export const UnStakeForm = ({
       setInputValue("");
     };
   }, []);
+
+  useEffect(() => {
+    setModalDisabled((val) => ({ ...val, w: withdrawing }));
+  }, [withdrawing]);
 
   const canWithdraw = isGreater(blockHeight, info.canWithdrawFromBlockHeight);
   const stakingTokenAddress = info.stakingToken;

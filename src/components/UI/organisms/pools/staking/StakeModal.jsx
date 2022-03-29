@@ -15,17 +15,16 @@ export const StakeModal = ({
   stakingTokenSymbol,
   lockupPeriod,
 }) => {
-  const [approving, setApproving] = useState(false);
-  const [depositing, setDepositing] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
   return (
-    <Modal isOpen={isOpen} onClose={onClose} disabled={approving || depositing}>
+    <Modal isOpen={isOpen} onClose={onClose} disabled={isDisabled}>
       <ModalWrapper>
         <Dialog.Title className="flex items-center font-bold font-sora text-h2">
           {modalTitle}
         </Dialog.Title>
 
         <ModalCloseButton
-          disabled={approving || depositing}
+          disabled={isDisabled}
           onClick={onClose}
         ></ModalCloseButton>
 
@@ -36,8 +35,7 @@ export const StakeModal = ({
           onClose={onClose}
           stakingTokenSymbol={stakingTokenSymbol}
           lockupPeriod={lockupPeriod}
-          setApproving={setApproving}
-          setDepositing={setDepositing}
+          setModalDisabled={setIsDisabled}
         />
       </ModalWrapper>
     </Modal>

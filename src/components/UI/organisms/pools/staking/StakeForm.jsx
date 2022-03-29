@@ -15,8 +15,7 @@ export const StakeForm = ({
   onClose,
   stakingTokenSymbol,
   lockupPeriod,
-  setApproving,
-  setDepositing,
+  setModalDisabled,
 }) => {
   const tokenAddress = info.stakingToken;
   const [inputValue, setInputValue] = useState();
@@ -43,8 +42,7 @@ export const StakeForm = ({
   });
 
   useEffect(() => {
-    setApproving(approving);
-    setDepositing(depositing);
+    setModalDisabled(approving || depositing);
   }, [approving, depositing]);
 
   const handleChooseMax = () => {

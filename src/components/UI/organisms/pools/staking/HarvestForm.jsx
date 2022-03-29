@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { RegularButton } from "@/components/UI/atoms/button/regular";
 import AddCircleIcon from "@/icons/AddCircleIcon";
 import { useRegisterToken } from "@/src/hooks/useRegisterToken";
@@ -13,6 +14,7 @@ export const HarvestForm = ({
   rewardTokenSymbol,
   poolKey,
   refetchInfo,
+  setModalDisabled,
 }) => {
   const { handleWithdrawRewards, withdrawingRewards } =
     useStakingPoolWithdrawRewards({
@@ -20,6 +22,10 @@ export const HarvestForm = ({
       refetchInfo,
     });
   const { register } = useRegisterToken();
+
+  useEffect(() => {
+    setModalDisabled((val) => ({ ...val, wr: withdrawingRewards }));
+  }, [withdrawingRewards]);
 
   return (
     <div className="px-12">

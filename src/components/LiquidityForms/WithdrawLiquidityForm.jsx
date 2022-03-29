@@ -25,7 +25,11 @@ import { useRemoveLiquidity } from "@/components/LiquidityForms/useRemoveLiquidi
 import { useAppConstants } from "@/src/context/AppConstants";
 import { useLiquidityFormsContext } from "@/components/LiquidityForms/LiquidityFormsContext";
 
-export const WithdrawLiquidityForm = ({ info, refetchInfo }) => {
+export const WithdrawLiquidityForm = ({
+  info,
+  refetchInfo,
+  setModalDisabled,
+}) => {
   const router = useRouter();
   const { cover_id } = router.query;
   const coverKey = toBytes32(cover_id);
@@ -73,6 +77,10 @@ export const WithdrawLiquidityForm = ({ info, refetchInfo }) => {
       setNpmValue();
     };
   }, []);
+
+  useEffect(() => {
+    setModalDisabled(withdrawing);
+  }, [withdrawing]);
 
   useEffect(() => {
     if (npmValue && isGreater(convertToUnits(npmValue), unStakableAmount)) {

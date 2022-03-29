@@ -32,12 +32,13 @@ export const CollectRewardModal = ({
   modalTitle,
 }) => {
   const [activeTab, setActiveTab] = useState(headers[0].name);
+  const [isDisabled, setIsDisabled] = useState({ w: false, wr: false });
 
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      // disabled={withdrawingRewards || withdrawing}
+      disabled={isDisabled.w || isDisabled.wr}
     >
       <ModalWrapper className="sm:min-w-600">
         <div className="px-12">
@@ -47,7 +48,7 @@ export const CollectRewardModal = ({
         </div>
 
         <ModalCloseButton
-          // disabled={withdrawingRewards || withdrawing}
+          disabled={isDisabled.w || isDisabled.wr}
           onClick={onClose}
         ></ModalCloseButton>
 
@@ -67,6 +68,7 @@ export const CollectRewardModal = ({
               rewardTokenSymbol={rewardTokenSymbol}
               poolKey={poolKey}
               refetchInfo={refetchInfo}
+              setModalDisabled={setIsDisabled}
             />
           ) : (
             <UnStakeForm
@@ -75,6 +77,7 @@ export const CollectRewardModal = ({
               stakedAmount={stakedAmount}
               stakingTokenSymbol={stakingTokenSymbol}
               refetchInfo={refetchInfo}
+              setModalDisabled={setIsDisabled}
             />
           )}
         </div>
