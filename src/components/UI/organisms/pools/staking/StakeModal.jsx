@@ -1,3 +1,4 @@
+import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Modal } from "@/components/UI/molecules/modal/regular";
 import { ModalCloseButton } from "@/components/UI/molecules/modal/close-button";
@@ -14,6 +15,8 @@ export const StakeModal = ({
   stakingTokenSymbol,
   lockupPeriod,
 }) => {
+  const [approving, setApproving] = useState(false);
+  const [depositing, setDepositing] = useState(false);
   return (
     <Modal isOpen={isOpen} onClose={onClose} disabled={approving || depositing}>
       <ModalWrapper>
@@ -33,6 +36,8 @@ export const StakeModal = ({
           onClose={onClose}
           stakingTokenSymbol={stakingTokenSymbol}
           lockupPeriod={lockupPeriod}
+          setApproving={setApproving}
+          setDepositing={setDepositing}
         />
       </ModalWrapper>
     </Modal>

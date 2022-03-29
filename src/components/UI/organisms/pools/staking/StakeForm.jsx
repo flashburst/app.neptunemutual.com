@@ -1,6 +1,6 @@
 import { RegularButton } from "@/components/UI/atoms/button/regular";
 import { Label } from "@/components/UI/atoms/label";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TokenAmountInput } from "@/components/UI/organisms/token-amount-input";
 import { convertFromUnits } from "@/utils/bn";
 import { useStakingPoolDeposit } from "@/src/hooks/useStakingPoolDeposit";
@@ -15,6 +15,8 @@ export const StakeForm = ({
   onClose,
   stakingTokenSymbol,
   lockupPeriod,
+  setApproving,
+  setDepositing,
 }) => {
   const tokenAddress = info.stakingToken;
   const [inputValue, setInputValue] = useState();
@@ -39,6 +41,11 @@ export const StakeForm = ({
     poolKey,
     maximumStake: info.maximumStake,
   });
+
+  useEffect(() => {
+    setApproving(approving);
+    setDepositing(depositing);
+  }, [approving, depositing]);
 
   const handleChooseMax = () => {
     setInputValue(convertFromUnits(maxStakableAmount).toString());
