@@ -1,4 +1,15 @@
 const nextJest = require("next/jest");
+const Router = require("next/router").default;
+
+const mockedRouter = {
+  push: () => {},
+  replace: () => {},
+  prefetch: () => {},
+  route: "/mock-route",
+  pathname: "mock-path",
+};
+
+Router.router = mockedRouter;
 
 const createJestConfig = nextJest();
 
