@@ -11,6 +11,8 @@ const unavailableTo = regions.split(',').filter((x) => !!x)
  * @returns {Promise<Response | undefined> | Response | undefined}
  */
 function handleBuildManifest (req) {
+  console.log('handleBuildManifest', req.url)
+
   if (req.url.includes('buildManifest')) {
     const response = NextResponse.rewrite(new URL('/buildManifest.js', req.url))
     response.headers.set('Access-Control-Allow-Origin', 'null')
@@ -25,6 +27,7 @@ function handleBuildManifest (req) {
  */
 function handleHtmlPages (req) {
   const isHTMLPage = typeof req.headers.get('accept') === 'string' && (req.headers.get('accept').includes('text/html') || req.headers.get('accept').includes('application/xhtml+xml'))
+  console.log('handleHtmlPages', req.url, isHTMLPage)
 
   const country = req.geo?.country || ''
 
