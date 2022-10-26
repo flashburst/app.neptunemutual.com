@@ -57,6 +57,12 @@ export function middleware (req) {
     console.log(req.url)
   }
 
+  const isHTMLPage = typeof req.headers.get('accept') === 'string' && (req.headers.get('accept').includes('text/html') || req.headers.get('accept').includes('application/xhtml+xml'))
+
+  if (isHTMLPage) {
+    console.log('middleware', req.url, isHTMLPage)
+  }
+
   let response = handleBuildManifest(req)
 
   if (response) {
