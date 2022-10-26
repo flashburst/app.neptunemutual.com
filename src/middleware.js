@@ -12,7 +12,6 @@ const unavailableTo = regions.split(',').filter((x) => !!x)
  */
 function handleBuildManifest (req) {
   if (req.url.includes('buildManifest')) {
-    console.log('handleBuildManifest', req.url)
     const response = NextResponse.rewrite(new URL('/buildManifest.js', req.url))
     response.headers.set('Access-Control-Allow-Origin', 'null')
     return response
@@ -26,10 +25,6 @@ function handleBuildManifest (req) {
  */
 function handleHtmlPages (req) {
   const isHTMLPage = typeof req.headers.get('accept') === 'string' && (req.headers.get('accept').includes('text/html') || req.headers.get('accept').includes('application/xhtml+xml'))
-
-  if (isHTMLPage) {
-    console.log('handleHtmlPages', req.url, isHTMLPage)
-  }
 
   const country = req.geo?.country || ''
 
@@ -53,15 +48,10 @@ function handleHtmlPages (req) {
  * @returns {Promise<Response | undefined> | Response | undefined}
  */
 export function middleware (req) {
-  if (req.url.includes('buildManifest')) {
-    console.log(req.url)
-  }
-
-  const isHTMLPage = typeof req.headers.get('accept') === 'string' && (req.headers.get('accept').includes('text/html') || req.headers.get('accept').includes('application/xhtml+xml'))
-
-  if (isHTMLPage) {
-    console.log('middleware', req.url, isHTMLPage)
-  }
+  console.log({
+    url: req.url,
+    header: req.headers.get('accept')
+  })
 
   let response = handleBuildManifest(req)
 
