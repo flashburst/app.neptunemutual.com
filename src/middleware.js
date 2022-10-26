@@ -48,23 +48,33 @@ function handleHtmlPages (req) {
  * @returns {Promise<Response | undefined> | Response | undefined}
  */
 export function middleware (req) {
-  console.log({
-    url: req.url,
-    header: req.headers.get('accept')
-  })
-
   let response = handleBuildManifest(req)
 
   if (response) {
+    console.log({
+      url: req.url,
+      header: req.headers.get('accept'),
+      return: 'handleBuildManifest'
+    })
     return response
   }
 
   response = handleHtmlPages(req)
 
   if (response) {
+    console.log({
+      url: req.url,
+      header: req.headers.get('accept'),
+      return: 'handleHtmlPages'
+    })
     return response
   }
 
+  console.log({
+    url: req.url,
+    header: req.headers.get('accept'),
+    return: 'direct'
+  })
   response = NextResponse.next()
   response.headers.set('Access-Control-Allow-Origin', 'null')
   return response
