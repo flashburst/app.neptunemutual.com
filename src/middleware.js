@@ -53,6 +53,10 @@ function handleHtmlPages (req) {
  * @returns {Promise<Response | undefined> | Response | undefined}
  */
 export function middleware (req) {
+  if (req.url.includes('buildManifest')) {
+    console.log(req.url)
+  }
+
   let response = handleBuildManifest(req)
 
   if (response) {
