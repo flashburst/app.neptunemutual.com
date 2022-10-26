@@ -48,6 +48,12 @@ function handleHtmlPages (req) {
  * @returns {Promise<Response | undefined> | Response | undefined}
  */
 export function middleware (req) {
+  console.log({
+    intial: true,
+    url: req.url,
+    header: req.headers.get('accept')
+  })
+
   let response = handleBuildManifest(req)
 
   if (response) {
