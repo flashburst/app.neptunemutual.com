@@ -31,6 +31,7 @@
     "highcharts": "9.1.2",
     "highcharts-react-official": "3.0.0",
     "make-plural": "7.1.0",
+    "neptunemutual-sdk-test": "^0.5.1-beta",
     "next": "12.3.0",
     "react": "17.0.2",
     "react-chartjs-2": "4.0.0",

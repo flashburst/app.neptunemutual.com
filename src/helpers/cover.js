@@ -1,5 +1,6 @@
+import { utils } from 'neptunemutual-sdk-test'
+
 import { parseBytes32String } from '@ethersproject/strings'
-import { utils } from '@neptunemutual/sdk'
 
 export const getCoverImgSrc = ({ key } = { key: '' }) => {
   try {

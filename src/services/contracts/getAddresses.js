@@ -1,4 +1,8 @@
-import { config, registry, multicall } from '@neptunemutual/sdk'
+import {
+  config,
+  multicall,
+  registry
+} from 'neptunemutual-sdk-test'
 
 import {
   FALLBACK_LIQUIDITY_TOKEN_DECIMALS,
@@ -8,8 +12,8 @@ import {
   GET_CONTRACTS_INFO_URL,
   NetworkUrlParam
 } from '@/src/config/constants'
-import { getReplacedString } from '@/utils/string'
 import { chunk } from '@/utils/arrays'
+import { getReplacedString } from '@/utils/string'
 
 const { Contract, Provider } = multicall
 

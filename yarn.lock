@@ -5572,6 +5572,20 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
+neptunemutual-sdk-test@^0.5.1-beta:
+  version "0.5.1-beta"
+  resolved "https://registry.yarnpkg.com/neptunemutual-sdk-test/-/neptunemutual-sdk-test-0.5.1-beta.tgz#ef04ecc3de65294798c998457cc05a48087a3156"
+  integrity sha512-bNYqI2yEen8tWIi7yCp6v9vXoX8e8kupmithwQx/G5aYBDoXNsnM8+mj6UrNEHAvVFYW6S12jjO2WHtqt1uMtw==
+  dependencies:
+    "@ethersproject/abstract-signer" "5.4.1"
+    "@ethersproject/constants" "5.4.0"
+    "@ethersproject/contracts" "5.4.1"
+    "@ethersproject/providers" "5.4.5"
+    "@ethersproject/solidity" "5.4.0"
+    "@ethersproject/strings" "5.4.0"
+    axios "0.26.0"
+    uuid "8.3.2"
+
 next@12.3.0:
   version "12.3.0"
   resolved "https://registry.yarnpkg.com/next/-/next-12.3.0.tgz#0e4c1ed0092544c7e8f4c998ca57cf6529e286cb"

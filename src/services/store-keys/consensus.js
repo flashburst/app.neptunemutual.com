@@ -1,4 +1,4 @@
-import { utils } from '@neptunemutual/sdk'
+import { utils } from 'neptunemutual-sdk-test'
 
 export const CoverStatus = {
   Normal: 0,

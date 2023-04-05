@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { registry } from 'neptunemutual-sdk-test'
 import { useRouter } from 'next/router'
 
 import { NetworkNames } from '@/lib/connect-wallet/config/chains'
@@ -22,7 +23,6 @@ import {
 } from '@/utils/bn'
 import { formatCurrency } from '@/utils/formatter/currency'
 import { t } from '@lingui/macro'
-import { registry } from '@neptunemutual/sdk'
 import { useWeb3React } from '@web3-react/core'
 
 export const useStakingPoolWithdraw = ({

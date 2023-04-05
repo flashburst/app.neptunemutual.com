@@ -3,6 +3,7 @@ import {
   useState
 } from 'react'
 
+import { governance } from 'neptunemutual-sdk-test'
 import { useRouter } from 'next/router'
 
 import { NetworkNames } from '@/lib/connect-wallet/config/chains'
@@ -33,10 +34,9 @@ import {
 } from '@/utils/bn'
 import { safeParseBytes32String } from '@/utils/formatter/bytes32String'
 import { formatCurrency } from '@/utils/formatter/currency'
-import { t } from '@lingui/macro'
-import { governance } from '@neptunemutual/sdk'
-import { useWeb3React } from '@web3-react/core'
 import { writeToIpfs } from '@/utils/ipfs.js'
+import { t } from '@lingui/macro'
+import { useWeb3React } from '@web3-react/core'
 
 export const useReportIncident = ({ coverKey, productKey, value }) => {
   const router = useRouter()

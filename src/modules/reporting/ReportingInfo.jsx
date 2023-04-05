@@ -1,5 +1,10 @@
-import { utils } from '@neptunemutual/sdk'
-import { useEffect, useState } from 'react'
+import {
+  useEffect,
+  useState
+} from 'react'
+
+import { utils } from 'neptunemutual-sdk-test'
+
 import { Trans } from '@lingui/macro'
 
 export const ReportingInfo = ({ ipfsHash }) => {

@@ -1,4 +1,5 @@
-import { utils } from '@neptunemutual/sdk'
+import { utils } from 'neptunemutual-sdk-test'
+
 const b32 = utils.keyUtil.toBytes32
 
 export const name = (poolKey, property = 'name') => {

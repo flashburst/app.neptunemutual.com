@@ -1,10 +1,14 @@
+import {
+  config,
+  multicall,
+  registry,
+  utils
+} from 'neptunemutual-sdk-test'
 
-import { config, registry, utils, multicall } from '@neptunemutual/sdk'
-
-import { convertToUnits } from '@/utils/bn'
 import { getProviderOrSigner } from '@/lib/connect-wallet/utils/web3'
 import DateLib from '@/lib/date/DateLib'
 import { getNetworkId } from '@/src/config/environment'
+import { convertToUnits } from '@/utils/bn'
 
 export const defaultInfo = {
   fee: '0',

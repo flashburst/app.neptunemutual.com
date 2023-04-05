@@ -3,6 +3,7 @@ import {
   useState
 } from 'react'
 
+import { config } from 'neptunemutual-sdk-test'
 import { useRouter } from 'next/router'
 
 import { Badge } from '@/common/Badge/Badge'
@@ -39,7 +40,6 @@ import {
   t,
   Trans
 } from '@lingui/macro'
-import { config } from '@neptunemutual/sdk'
 
 // data from subgraph
 // info from `getInfo` on smart contract

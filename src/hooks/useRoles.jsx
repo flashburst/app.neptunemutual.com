@@ -1,10 +1,20 @@
-import { useEffect, useState } from 'react'
-import { t } from '@lingui/macro'
-import { useWeb3React } from '@web3-react/core'
-import { config, registry, utils, multicall } from '@neptunemutual/sdk'
+import {
+  useEffect,
+  useState
+} from 'react'
+
+import {
+  config,
+  multicall,
+  registry,
+  utils
+} from 'neptunemutual-sdk-test'
+
 import { getProviderOrSigner } from '@/lib/connect-wallet/utils/web3'
 import { useNetwork } from '@/src/context/Network'
 import { useErrorNotifier } from '@/src/hooks/useErrorNotifier'
+import { t } from '@lingui/macro'
+import { useWeb3React } from '@web3-react/core'
 
 export const useRoles = () => {
   const [roles, setRoles] = useState({

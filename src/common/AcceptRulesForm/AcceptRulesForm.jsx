@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { config } from 'neptunemutual-sdk-test'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -11,7 +12,6 @@ import { useNetwork } from '@/src/context/Network'
 import { useValidateNetwork } from '@/src/hooks/useValidateNetwork'
 import { classNames } from '@/utils/classnames'
 import { Trans } from '@lingui/macro'
-import { config } from '@neptunemutual/sdk'
 
 export const AcceptRulesForm = ({
   onAccept,

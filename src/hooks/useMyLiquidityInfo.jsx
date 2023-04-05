@@ -4,6 +4,8 @@ import {
   useState
 } from 'react'
 
+import { registry } from 'neptunemutual-sdk-test'
+
 import { getProviderOrSigner } from '@/lib/connect-wallet/utils/web3'
 import DateLib from '@/lib/date/DateLib'
 import {
@@ -23,7 +25,6 @@ import {
 import { isGreater } from '@/utils/bn'
 import { getReplacedString } from '@/utils/string'
 import { t } from '@lingui/macro'
-import { registry } from '@neptunemutual/sdk'
 import { useWeb3React } from '@web3-react/core'
 
 export const defaultInfo = {

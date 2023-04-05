@@ -1,7 +1,12 @@
-import { Contract } from '@ethersproject/contracts'
+import { config } from 'neptunemutual-sdk-test'
+
 import { BigNumber } from '@ethersproject/bignumber'
-import { config } from '@neptunemutual/sdk'
-import { registry, stakingPools } from '../../../store-keys'
+import { Contract } from '@ethersproject/contracts'
+
+import {
+  registry,
+  stakingPools
+} from '../../../store-keys'
 
 export const getKeys = async (chainId, poolKey, account, provider) => {
   return [

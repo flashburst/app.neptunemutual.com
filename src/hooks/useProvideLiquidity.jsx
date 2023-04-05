@@ -3,6 +3,10 @@ import {
   useState
 } from 'react'
 
+import {
+  registry,
+  utils
+} from 'neptunemutual-sdk-test'
 import { useRouter } from 'next/router'
 
 import {
@@ -33,10 +37,6 @@ import {
 import { safeParseBytes32String } from '@/utils/formatter/bytes32String'
 import { formatCurrency } from '@/utils/formatter/currency'
 import { t } from '@lingui/macro'
-import {
-  registry,
-  utils
-} from '@neptunemutual/sdk'
 import { useWeb3React } from '@web3-react/core'
 
 export const useProvideLiquidity = ({

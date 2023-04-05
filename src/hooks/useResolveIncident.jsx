@@ -1,19 +1,24 @@
-import { t } from '@lingui/macro'
+import { useState } from 'react'
+
+import {
+  registry,
+  utils
+} from 'neptunemutual-sdk-test'
+
 import { getProviderOrSigner } from '@/lib/connect-wallet/utils/web3'
 import { useNetwork } from '@/src/context/Network'
+import { useTxPoster } from '@/src/context/TxPoster'
+import { getActionMessage } from '@/src/helpers/notification'
 import { useAuthValidation } from '@/src/hooks/useAuthValidation'
 import { useErrorNotifier } from '@/src/hooks/useErrorNotifier'
-import { useTxPoster } from '@/src/context/TxPoster'
 import { useTxToast } from '@/src/hooks/useTxToast'
-import { registry, utils } from '@neptunemutual/sdk'
-import { useWeb3React } from '@web3-react/core'
-import { useState } from 'react'
+import { METHODS } from '@/src/services/transactions/const'
 import {
   STATUS,
   TransactionHistory
 } from '@/src/services/transactions/transaction-history'
-import { METHODS } from '@/src/services/transactions/const'
-import { getActionMessage } from '@/src/helpers/notification'
+import { t } from '@lingui/macro'
+import { useWeb3React } from '@web3-react/core'
 
 export const useResolveIncident = ({ coverKey, productKey, incidentDate }) => {
   const { account, library } = useWeb3React()

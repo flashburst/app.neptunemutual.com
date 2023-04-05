@@ -1,4 +1,4 @@
-import { config } from '@neptunemutual/sdk'
+import { config } from 'neptunemutual-sdk-test'
 
 export const getApproximateBlocksPerYear = (chainId) => {
   const blockTime =

@@ -1,6 +1,7 @@
-import { getKeys } from './keys'
-import { utils } from '@neptunemutual/sdk'
+import { utils } from 'neptunemutual-sdk-test'
+
 import { stringifyProps } from '../../../../utils/props'
+import { getKeys } from './keys'
 
 export const getInfo = async (chainId, type, poolKey, account, provider) => {
   try {

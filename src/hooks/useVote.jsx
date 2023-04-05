@@ -1,28 +1,38 @@
-import { useEffect, useState } from 'react'
-import { t } from '@lingui/macro'
-import { useWeb3React } from '@web3-react/core'
+import {
+  useEffect,
+  useState
+} from 'react'
+
+import {
+  registry,
+  utils
+} from 'neptunemutual-sdk-test'
+
 import { getProviderOrSigner } from '@/lib/connect-wallet/utils/web3'
-import { registry, utils } from '@neptunemutual/sdk'
+import { useAppConstants } from '@/src/context/AppConstants'
+import { useNetwork } from '@/src/context/Network'
+import { useTxPoster } from '@/src/context/TxPoster'
+import { getActionMessage } from '@/src/helpers/notification'
+import {
+  useGovernanceAddress
+} from '@/src/hooks/contracts/useGovernanceAddress'
+import { useERC20Allowance } from '@/src/hooks/useERC20Allowance'
+import { useERC20Balance } from '@/src/hooks/useERC20Balance'
+import { useErrorNotifier } from '@/src/hooks/useErrorNotifier'
+import { useTxToast } from '@/src/hooks/useTxToast'
+import { METHODS } from '@/src/services/transactions/const'
+import {
+  STATUS,
+  TransactionHistory
+} from '@/src/services/transactions/transaction-history'
 import {
   convertToUnits,
   isGreater,
   isGreaterOrEqual,
   isValidNumber
 } from '@/utils/bn'
-import { useNetwork } from '@/src/context/Network'
-import { useTxToast } from '@/src/hooks/useTxToast'
-import { useAppConstants } from '@/src/context/AppConstants'
-import { useErrorNotifier } from '@/src/hooks/useErrorNotifier'
-import { useGovernanceAddress } from '@/src/hooks/contracts/useGovernanceAddress'
-import { useERC20Allowance } from '@/src/hooks/useERC20Allowance'
-import { useERC20Balance } from '@/src/hooks/useERC20Balance'
-import { useTxPoster } from '@/src/context/TxPoster'
-import {
-  STATUS,
-  TransactionHistory
-} from '@/src/services/transactions/transaction-history'
-import { METHODS } from '@/src/services/transactions/const'
-import { getActionMessage } from '@/src/helpers/notification'
+import { t } from '@lingui/macro'
+import { useWeb3React } from '@web3-react/core'
 
 export const useVote = ({ coverKey, productKey, value, incidentDate }) => {
   const [approving, setApproving] = useState(false)

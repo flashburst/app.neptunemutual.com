@@ -1,5 +1,9 @@
-import { config } from '@neptunemutual/sdk'
-import { IPFS_REPORT_INFO_URL, IPFS_DISPUTE_INFO_URL } from '@/src/config/constants'
+import { config } from 'neptunemutual-sdk-test'
+
+import {
+  IPFS_DISPUTE_INFO_URL,
+  IPFS_REPORT_INFO_URL
+} from '@/src/config/constants'
 
 const urls = {
   report: IPFS_REPORT_INFO_URL,
