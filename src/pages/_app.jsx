@@ -22,17 +22,6 @@ import { Web3ReactProvider } from '@web3-react/core'
 
 import { LanguageProvider } from '../i18n'
 
-console.log('NPM_ETHEREUM_STORE', process.env.NPM_ETHEREUM_STORE)
-console.log('NEXT_PUBLIC_ETHEREUM_STORE', process.env.NEXT_PUBLIC_ETHEREUM_STORE)
-console.log('NPM_ARBITRUM_STORE', process.env.NPM_ARBITRUM_STORE)
-console.log('NEXT_PUBLIC_ARBITRUM_STORE', process.env.NEXT_PUBLIC_ARBITRUM_STORE)
-console.log('NPM_BASE_GOERLI_STORE', process.env.NPM_BASE_GOERLI_STORE)
-console.log('NEXT_PUBLIC_BASE_GOERLI_STORE', process.env.NEXT_PUBLIC_BASE_GOERLI_STORE)
-console.log('NPM_MUMBAI_STORE', process.env.NPM_MUMBAI_STORE)
-console.log('NEXT_PUBLIC_MUMBAI_STORE', process.env.NEXT_PUBLIC_MUMBAI_STORE)
-console.log('NPM_FUJI_STORE', process.env.NPM_FUJI_STORE)
-console.log('NEXT_PUBLIC_FUJI_STORE', process.env.NEXT_PUBLIC_FUJI_STORE)
-
 const Wrappers = ({ children, noHeader }) => {
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
@@ -54,19 +43,6 @@ const Wrappers = ({ children, noHeader }) => {
 }
 
 function MyApp ({ Component, pageProps }) {
-  // useEffect(() => {
-  //   console.log('NPM_ETHEREUM_STORE', process.env.NPM_ETHEREUM_STORE)
-  //   console.log('NEXT_PUBLIC_ETHEREUM_STORE', process.env.NEXT_PUBLIC_ETHEREUM_STORE)
-  //   console.log('NPM_ARBITRUM_STORE', process.env.NPM_ARBITRUM_STORE)
-  //   console.log('NEXT_PUBLIC_ARBITRUM_STORE', process.env.NEXT_PUBLIC_ARBITRUM_STORE)
-  //   console.log('NPM_BASE_GOERLI_STORE', process.env.NPM_BASE_GOERLI_STORE)
-  //   console.log('NEXT_PUBLIC_BASE_GOERLI_STORE', process.env.NEXT_PUBLIC_BASE_GOERLI_STORE)
-  //   console.log('NPM_MUMBAI_STORE', process.env.NPM_MUMBAI_STORE)
-  //   console.log('NEXT_PUBLIC_MUMBAI_STORE', process.env.NEXT_PUBLIC_MUMBAI_STORE)
-  //   console.log('NPM_FUJI_STORE', process.env.NPM_FUJI_STORE)
-  //   console.log('NEXT_PUBLIC_FUJI_STORE', process.env.NEXT_PUBLIC_FUJI_STORE)
-  // }, [])
-
   useEffect(() => {
     setupMetamaskForFirefox()
   }, [])
