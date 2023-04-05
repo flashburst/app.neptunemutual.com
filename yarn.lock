@@ -5572,10 +5572,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-neptunemutual-sdk-test@^0.5.1-beta:
-  version "0.5.1-beta"
-  resolved "https://registry.yarnpkg.com/neptunemutual-sdk-test/-/neptunemutual-sdk-test-0.5.1-beta.tgz#ef04ecc3de65294798c998457cc05a48087a3156"
-  integrity sha512-bNYqI2yEen8tWIi7yCp6v9vXoX8e8kupmithwQx/G5aYBDoXNsnM8+mj6UrNEHAvVFYW6S12jjO2WHtqt1uMtw==
+neptunemutual-sdk-test@^0.5.2-beta:
+  version "0.5.2-beta"
+  resolved "https://registry.yarnpkg.com/neptunemutual-sdk-test/-/neptunemutual-sdk-test-0.5.2-beta.tgz#d2f2165c053d0db033505d037db52eb6fc4c2579"
+  integrity sha512-gXTfjPNOm1/M8jq51Fsp5YViV8rcE0DX0m5RAQYfmj2uBdty8KqV5XpYyMgKngcWsM2x4VWniVqVl8yIo5jhgQ==
   dependencies:
     "@ethersproject/abstract-signer" "5.4.1"
     "@ethersproject/constants" "5.4.0"
