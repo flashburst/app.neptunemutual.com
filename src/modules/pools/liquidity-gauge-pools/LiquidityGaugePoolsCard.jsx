@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import {
   LiquidityGaugeBalanceDetails
 } from '@/modules/pools/liquidity-gauge-pools/LiquidityGaugeBalanceDetails'
@@ -20,7 +22,6 @@ import { toBN } from '@/utils/bn'
 import { classNames } from '@/utils/classnames'
 import { config } from '@neptunemutual/sdk'
 import { useWeb3React } from '@web3-react/core'
-import { useState } from 'react'
 
 const DescriptionOrDetail = ({
   lock,
@@ -52,10 +53,10 @@ const DescriptionOrDetail = ({
     </div>
   )
 }
-export const LiquidityGaugePoolsList = ({ data }) => {
+export const LiquidityGaugePoolsList = ({ data = [] }) => {
   return (
     <div role='list' className='divide-y divide-B0C4DB border-[1px] border-B0C4DB rounded-2xl'>
-      {data.slice(-2).map((pool) => (
+      {data.slice(0, 2).map((pool) => (
         <LiquidityGaugePoolCard
           key={pool.key}
           pool={pool}

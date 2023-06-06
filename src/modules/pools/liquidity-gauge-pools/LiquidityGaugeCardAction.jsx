@@ -1,11 +1,18 @@
-import { useEffect, useMemo, useState } from 'react'
+import {
+  useEffect,
+  useMemo,
+  useState
+} from 'react'
+
+import { useRouter } from 'next/router'
 
 import AddIcon from '@/icons/AddIcon'
 import { LockModal } from '@/modules/pools/liquidity-gauge-pools/LockModal'
-import { explainInterval } from '@/utils/formatter/interval'
-import { useLiquidityGaugePoolActions } from '@/src/hooks/useLiquidityGaugePoolActions'
+import {
+  useLiquidityGaugePoolActions
+} from '@/src/hooks/useLiquidityGaugePoolActions'
 import { toBN } from '@/utils/bn'
-import { useRouter } from 'next/router'
+import { explainInterval } from '@/utils/formatter/interval'
 
 export const MODAL_STATES = {
   LOCK: 'lock',

@@ -1,4 +1,3 @@
-
 import { InfoTooltip } from '@/common/Cover/InfoTooltip'
 import { useWeb3React } from '@web3-react/core'
 

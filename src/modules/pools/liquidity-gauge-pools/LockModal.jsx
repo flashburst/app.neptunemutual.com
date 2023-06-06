@@ -4,16 +4,21 @@ import { RegularButton } from '@/common/Button/RegularButton'
 import { ModalRegular } from '@/common/Modal/ModalRegular'
 import { TokenAmountInput } from '@/common/TokenAmountInput/TokenAmountInput'
 import CloseIcon from '@/icons/CloseIcon'
-import { convertFromUnits, toBN } from '@/utils/bn'
+import {
+  MODAL_STATES
+} from '@/modules/pools/liquidity-gauge-pools/LiquidityGaugeCardAction'
+import {
+  convertFromUnits,
+  toBN
+} from '@/utils/bn'
+import { classNames } from '@/utils/classnames'
 import { formatCurrency } from '@/utils/formatter/currency'
+import { explainInterval } from '@/utils/formatter/interval'
 import {
   t,
   Trans
 } from '@lingui/macro'
 import * as Dialog from '@radix-ui/react-dialog'
-import { MODAL_STATES } from '@/modules/pools/liquidity-gauge-pools/LiquidityGaugeCardAction'
-import { classNames } from '@/utils/classnames'
-import { explainInterval } from '@/utils/formatter/interval'
 
 export const LockModal = ({
   modalTitle,

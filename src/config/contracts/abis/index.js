@@ -4,8 +4,8 @@ import IVoteEscrowToken from './IVoteEscrowToken.json'
 import LiquidityGaugePool from './LiquidityGaugePool.json'
 
 export const abis = {
+  LiquidityGaugePool,
   IVoteEscrowToken,
   GaugeControllerRegistry,
-  IERC20,
-  LiquidityGaugePool
+  IERC20
 }

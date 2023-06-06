@@ -4,25 +4,31 @@ import {
   useState
 } from 'react'
 
-import { CONTRACT_DEPLOYMENTS } from '@/src/config/constants'
-import { useErrorNotifier } from '@/src/hooks/useErrorNotifier'
-import { t } from '@lingui/macro'
-import { useERC20Allowance } from '@/src/hooks/useERC20Allowance'
-import { useNetwork } from '@/src/context/Network'
-import { useTokenSymbol } from '@/src/hooks/useTokenSymbol'
-import { STATUS, TransactionHistory } from '@/src/services/transactions/transaction-history'
-import { METHODS } from '@/src/services/transactions/const'
-import { getActionMessage } from '@/src/helpers/notification'
-import { convertToUnits, toBN } from '@/utils/bn'
-import { useTxToast } from '@/src/hooks/useTxToast'
-import { useTxPoster } from '@/src/context/TxPoster'
-import { useWeb3React } from '@web3-react/core'
-import { useERC20Balance } from '@/src/hooks/useERC20Balance'
 import { getProviderOrSigner } from '@/lib/connect-wallet/utils/web3'
-import { utils } from '@neptunemutual/sdk'
+import { CONTRACT_DEPLOYMENTS } from '@/src/config/constants'
 import { abis } from '@/src/config/contracts/abis'
+import { useNetwork } from '@/src/context/Network'
+import { useTxPoster } from '@/src/context/TxPoster'
+import { getActionMessage } from '@/src/helpers/notification'
+import { useERC20Allowance } from '@/src/hooks/useERC20Allowance'
+import { useERC20Balance } from '@/src/hooks/useERC20Balance'
+import { useErrorNotifier } from '@/src/hooks/useErrorNotifier'
 import { useTokenDecimals } from '@/src/hooks/useTokenDecimals'
+import { useTokenSymbol } from '@/src/hooks/useTokenSymbol'
+import { useTxToast } from '@/src/hooks/useTxToast'
 import { contractRead } from '@/src/services/readContract'
+import { METHODS } from '@/src/services/transactions/const'
+import {
+  STATUS,
+  TransactionHistory
+} from '@/src/services/transactions/transaction-history'
+import {
+  convertToUnits,
+  toBN
+} from '@/utils/bn'
+import { t } from '@lingui/macro'
+import { utils } from '@neptunemutual/sdk'
+import { useWeb3React } from '@web3-react/core'
 
 export const useLiquidityGaugePoolActions = ({ stakingTokenAddress, amount, poolKey }) => {
   const { notifyError } = useErrorNotifier()
@@ -180,12 +186,16 @@ export const useLiquidityGaugePoolActions = ({ stakingTokenAddress, amount, pool
     }
 
     const handleError = (err) => {
-      notifyError(err, t`Could not stake ${stakingTokenSymbol}`)
+      notifyError(err, t`Could not lock ${stakingTokenSymbol}`)
     }
 
     try {
       const signerOrProvider = getProviderOrSigner(library, account, networkId)
-      const instance = utils.contract.getContract(liquidityGaugePoolAddress, abis.LiquidityGaugePool, signerOrProvider)
+      const instance = utils.contract.getContract(
+        liquidityGaugePoolAddress,
+        abis.LiquidityGaugePool,
+        signerOrProvider
+      )
 
       const onTransactionResult = async (tx) => {
         TransactionHistory.push({
