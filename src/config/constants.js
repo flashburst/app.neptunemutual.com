@@ -131,7 +131,7 @@ export const SNAPSHOT_INTERFACE_URL = {
   mainnet: 'https://snapshot.org'
 }
 
-export const SNAPSHOT_SPACE_ID = 'neptunemutual.eth'
+export const SNAPSHOT_SPACE_ID = 'neptunemutual.com'
 
 export const DAYS = 24 * 60 * 60
 
