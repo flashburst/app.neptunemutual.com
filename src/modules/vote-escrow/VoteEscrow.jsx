@@ -83,7 +83,7 @@ const VoteEscrow = ({ networkId }) => {
     handleApprove
   } = useVoteEscrowLock({
     refetchLockData,
-    lockAmountInUnits: convertToUnits(input || '0', NPMTokenDecimals),
+    lockAmountInUnits: convertToUnits(input || '0', NPMTokenDecimals).toString(),
     veNPMTokenAddress,
     NPMTokenAddress,
     NPMTokenSymbol
