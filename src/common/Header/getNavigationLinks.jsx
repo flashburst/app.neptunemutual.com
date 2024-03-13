@@ -1,5 +1,6 @@
 import { getActions } from '@/src/config/cover/actions'
 import { isFeatureEnabled } from '@/src/config/environment'
+import { ChainConfig } from '@/src/config/hardcoded'
 import { Routes } from '@/src/config/routes'
 import { t } from '@lingui/macro'
 
@@ -21,6 +22,7 @@ const getNavigationLinks = (pathname, i18n, networkId) => {
   const bridgeEnabled = isCelerBridgeEnabled || isLayerZeroBridgeEnabled
 
   const poolLink = Routes.Pools(networkId)
+  const networkDetails = ChainConfig[networkId]
 
   const actions = getActions(i18n, networkId)
 
@@ -38,22 +40,22 @@ const getNavigationLinks = (pathname, i18n, networkId) => {
 
   /** @type {Link[]} */
   let links = [
-    poolLink && {
+    networkDetails && poolLink && {
       name: t(i18n)`Pool`,
       href: poolLink,
       activeWhenStartsWith: '/pools'
     },
-    reportingEnabled && {
+    networkDetails && reportingEnabled && {
       name: t(i18n)`Reporting`,
       href: Routes.ActiveReports(networkId),
       activeWhenStartsWith: '/reports'
     },
-    governanceEnabled && {
+    networkDetails && governanceEnabled && {
       name: t(i18n)`Governance`,
       href: Routes.Governance(networkId),
       activeWhenStartsWith: Routes.Governance(networkId)
     },
-    voteEscrowEnabled && {
+    networkDetails && voteEscrowEnabled && {
       name: t(i18n)`Vote Escrow`,
       href: Routes.VoteEscrow(networkId),
       activeWhenStartsWith: Routes.VoteEscrow(networkId)
@@ -63,7 +65,7 @@ const getNavigationLinks = (pathname, i18n, networkId) => {
       href: Routes.Bridge(networkId),
       activeWhenStartsWith: '/bridge'
     },
-    (policyEnabled || liquidityEnabled) && {
+    networkDetails && (policyEnabled || liquidityEnabled) && {
       name: t(i18n)`My Account`,
       items: [
         policyEnabled && {

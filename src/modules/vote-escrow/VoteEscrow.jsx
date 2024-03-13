@@ -60,12 +60,13 @@ const VoteEscrow = ({ networkId }) => {
   const { i18n } = useLingui()
 
   const router = useRouter()
-  const { isMobile } = useDeviceSize()
 
   const { NPMTokenDecimals, NPMTokenSymbol, NPMTokenAddress } = useAppConstants()
   const veNPMTokenSymbol = ChainConfig[networkId].veNPM.tokenSymbol
   const veNPMTokenDecimals = ChainConfig[networkId].veNPM.tokenDecimals
   const veNPMTokenAddress = ChainConfig[networkId].veNPM.address
+
+  const { isMobile } = useDeviceSize()
 
   const {
     data,

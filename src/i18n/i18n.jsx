@@ -4,12 +4,12 @@ import React, {
   useState
 } from 'react'
 
+import { DEFAULT_LOCALE } from '@/src/config/locales'
 import { dynamicActivate } from '@/src/i18n/dynamic-activate'
 import { i18n } from '@lingui/core'
 import { I18nProvider } from '@lingui/react'
 
 import { useActiveLocale } from '../hooks/useActiveLocale'
-import { DEFAULT_LOCALE } from '@/src/config/locales'
 
 const DefaultI18n = ({ children }) => {
   return <span>{children}</span>
@@ -38,20 +38,11 @@ export function LanguageProvider ({ children }) {
   const [refresh, setRefresh] = useState(false)
 
   useEffect(() => {
-    let ignore = false
-
     dynamicActivate(locale)
       .then(() => {
-        /* istanbul ignore next */
-        if (ignore) { return }
         console.log('Activated locale %s', locale)
-        // setLoaded(true)
       })
       .catch((error) => { return console.error('Failed to activate locale', locale, error) })
-
-    return () => {
-      ignore = true
-    }
   }, [locale])
 
   const updateRefresh = useCallback(() => { return setRefresh(r => { return !r }) }, [])

@@ -14,6 +14,7 @@ import {
   ChainLogos,
   NetworkNames
 } from '@/lib/connect-wallet/config/chains'
+import { Routes } from '@/src/config/routes'
 import { useNetwork } from '@/src/context/Network'
 import { useOnClickOutside } from '@/src/hooks/useClickOutside'
 import { useWindowSize } from '@/src/hooks/useWindowSize'
@@ -25,7 +26,6 @@ import {
   Portal,
   Root
 } from '@radix-ui/react-dialog'
-import { Routes } from '@/src/config/routes'
 
 export const Network = ({ closeMenu = () => {} }) => {
   const { networkId } = useNetwork()
@@ -83,7 +83,7 @@ export const Network = ({ closeMenu = () => {} }) => {
     }
   }, [handleKeyPress])
 
-  const ChainLogo = ChainLogos[networkId || 1] || ChainLogos[1]
+  const ChainLogo = ChainLogos[networkId] || ChainLogos[1]
 
   return (
     <div
